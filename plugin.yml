@@ -1,0 +1,20 @@
+name: OtterECO
+api: 4.0.0
+main: anybananagame\ottereco\Main
+
+version: 0.0.1
+description: An economy plugin for me ig
+author: anybananagame
+github: https://github.com/AnyBananaGAME
+repository: 
+
+permissions:
+  ottereco.command.setbal:
+    default: op
+    description: Set player's balance
+  ottereco.command.pay:
+    default: true
+    description: Allow players to pay  
+  ottereco.command.bal:
+    default: true
+    description: Check balance

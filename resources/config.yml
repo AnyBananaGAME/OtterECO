@@ -1,0 +1,25 @@
+version: 1
+
+
+
+prefix: "§r§l§7[§r§eOtter§gECO§l§7] "
+
+
+# command outputs
+
+nousername: "{prefix} §r§cUSAGE §7/{cmd} <username> <money>\n§cMissing Username"
+noamount: "{prefix} §r§cUSAGE §7/{cmd} <username> <money>\n§cMissing Amount"
+
+adduserbal: "{prefix} §r§7Added §c{bal}§7 to §c{username}'s§7 balance, §c{username} §7now has §c${totalbal} §r"
+
+balancecommand: "{prefix} §r§7You have a balance of §c{balance}§r"
+hasbalancecommand: "{prefix} §r§c{username} §7has a balance of §c{balance}§r"
+NAN: "{prefix} §r§c{arg}§r§7 Is not a number!"
+
+setbalance: "{prefix} §r§7Set §c{username}§7's balance to §c{balance}§7"
+
+userdoesnotexist: "{prefix} §r§cThis user does not exist §7( §c{username} §7) §r"
+belowzero: "{prefix} §r§c{arg} §7can not be below §c0"
+notenoughmoney: "{prefix} §r§7You can not pay more §cmoney §7 than you have"
+getpaid: "{prefix} §r§c{payer}§7 has paid you §c{amount}"
+youpaid: "{prefix} §r§7You have paid §c{receiver} §c{amount}"
