@@ -1,24 +1,18 @@
 <?php
-
 namespace anybananagame\ottereco;
 
 use pocketmine\player\Player;
 use pocketmine\utils\Config;
 
-
-class EcoFunctions
-{
+class EcoFunctions {
     private Main $plugin;
 
-    public function __construct(Main $plugin)
-    {
+    public function __construct(Main $plugin) {
         $this->plugin = $plugin;
     }
 
-
     /** @param username */
-    public function getMoney($usern)
-    {
+    public function getMoney($usern) {
         $player = $this->plugin->getServer()->getPlayerExact($usern);
         if ($player == null) {
             $player = $this->plugin->getServer()->getOfflinePlayer($usern);
@@ -36,8 +30,8 @@ class EcoFunctions
         $bal = $data["money"];
         return $bal;
     }
-    public function setMoney($usern, $amount)
-    {
+
+    public function setMoney($usern, $amount) {
         $player = $this->plugin->getServer()->getOfflinePlayer($usern);
         $username = strtolower($player->getName());
 
@@ -49,8 +43,8 @@ class EcoFunctions
         $db->setNested("$username.money", $amount);
         return $db->save();
     }
-    public function addMoney($usern, $amount)
-    {
+
+    public function addMoney($usern, $amount) {
         $player = $this->plugin->getServer()->getOfflinePlayer($usern);
         $username = strtolower($player->getName());
 
@@ -62,8 +56,8 @@ class EcoFunctions
         $db->setNested("$username.money", $bal + $amount);
         return $db->save();
     }
-    public function takeMoney($usern, $amount)
-    {
+
+    public function takeMoney($usern, $amount) {
         $player = $this->plugin->getServer()->getOfflinePlayer($usern);
         $username = strtolower($player->getName());
 
@@ -76,9 +70,7 @@ class EcoFunctions
         return $db->save();
     }
 
-
-
-    public function getConfig(){
+    public function getConfig() {
         return $this->getConfig();
     }
 }
