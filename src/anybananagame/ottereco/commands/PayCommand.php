@@ -8,9 +8,7 @@ use pocketmine\plugin\PluginOwnedTrait;
 use anybananagame\ottereco\Main;
 use pocketmine\utils\Config;
 
-class PayCommand extends Command implements PluginOwned
-{
-
+class PayCommand extends Command implements PluginOwned {
     use PluginOwnedTrait;
     private $con;
     
