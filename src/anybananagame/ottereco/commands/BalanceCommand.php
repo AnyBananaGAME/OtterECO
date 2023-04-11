@@ -8,13 +8,12 @@ use pocketmine\plugin\PluginOwnedTrait;
 use anybananagame\ottereco\Main;
 use pocketmine\utils\Config;
 
-class BalanceCommand extends Command implements PluginOwned
-{
-
+class BalanceCommand extends Command implements PluginOwned {
     use PluginOwnedTrait;
+    
     private $con;
-    public function __construct(Main $plugin)
-    {
+    
+    public function __construct(Main $plugin) {
         $this->owningPlugin = $plugin;
         $this->con = $plugin;
         parent::__construct("balance", "Check balance", "/balance <player>");
@@ -22,9 +21,8 @@ class BalanceCommand extends Command implements PluginOwned
         $this->setDescription("Check balance of a player");
     }
 
-    public function execute(CommandSender $sender, string $commandLabel, array $args): bool
-    {
-        if(!isset($args[0])) {
+    public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
+        if (!isset($args[0])) {
             $bal = $this->con->getEcoFunc()->getMoney($sender->getName());
 
             $message = $this->con->getConfig()->get("hasbalancecommand");
@@ -39,7 +37,8 @@ class BalanceCommand extends Command implements PluginOwned
     
         $lowuser = strtolower($args[0]);
         $data = $db->get("$lowuser");
-        if(!$data){
+        
+        if (!$data){
             $message = $this->con->getConfig()->get("userdoesnotexist");
             $message = str_replace("{username}", $lowuser, $message);
             $message = str_replace("{prefix}", $this->con->getConfig()->get("prefix"), $message);
@@ -47,15 +46,13 @@ class BalanceCommand extends Command implements PluginOwned
             return false;
         }
 
-       $bal = $this->con->getEcoFunc()->getMoney($args[0]);
-       $message = $this->con->getConfig()->get("hasbalancecommand");
-       $message = str_replace("{balance}", $bal, $message);
-       $message = str_replace("{username}", $args[0], $message);
-       $message = str_replace("{prefix}", $this->con->getConfig()->get("prefix"), $message);
+        $bal = $this->con->getEcoFunc()->getMoney($args[0]);
+        $message = $this->con->getConfig()->get("hasbalancecommand");
+        $message = str_replace("{balance}", $bal, $message);
+        $message = str_replace("{username}", $args[0], $message);
+        $message = str_replace("{prefix}", $this->con->getConfig()->get("prefix"), $message);
 
-       $sender->sendMessage($message);
+        $sender->sendMessage($message);
         return true;
     }
-
-
 }
